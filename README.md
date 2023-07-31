@@ -9,7 +9,6 @@ This repository contains the Products Service, a microservice built for the e-co
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
   - [Configuration](#configuration)
-  - [Usage](#usage)
 - [API Documentation](#api-documentation)
 
 ## Description
