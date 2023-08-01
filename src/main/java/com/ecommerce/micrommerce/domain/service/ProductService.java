@@ -1,6 +1,7 @@
 package com.ecommerce.micrommerce.domain.service;
 
 import com.ecommerce.micrommerce.domain.entities.Product;
+import com.ecommerce.micrommerce.domain.service.command.ProductCommand;
 import com.ecommerce.micrommerce.domain.service.representation.ProductRepresentation;
 
 import java.math.BigDecimal;
@@ -12,7 +13,7 @@ public interface ProductService {
 
     public void deleteProduct(UUID id);
 
-    public ProductRepresentation saveOrUpdateProduct(Product product);
+    public ProductRepresentation saveOrUpdateProduct(ProductCommand productCommand);
 
     List<ProductRepresentation> findAllProductOrderByName();
 

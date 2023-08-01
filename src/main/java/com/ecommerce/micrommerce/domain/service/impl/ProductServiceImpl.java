@@ -4,7 +4,8 @@ import com.ecommerce.micrommerce.domain.entities.ImageRandomResponse;
 import com.ecommerce.micrommerce.domain.entities.Product;
 import com.ecommerce.micrommerce.domain.repository.ProductDao;
 import com.ecommerce.micrommerce.domain.service.ProductService;
-import com.ecommerce.micrommerce.domain.service.impl.mapper.ProductMapper;
+import com.ecommerce.micrommerce.domain.service.command.ProductCommand;
+import com.ecommerce.micrommerce.domain.service.mapper.ProductMapper;
 import com.ecommerce.micrommerce.domain.service.representation.ProductRepresentation;
 import com.ecommerce.micrommerce.infrastructure.exceptions.ProductException;
 import lombok.RequiredArgsConstructor;
@@ -36,8 +37,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductRepresentation saveOrUpdateProduct(Product product) {
-        log.info("save product {} ", product);
+    public ProductRepresentation saveOrUpdateProduct(ProductCommand productCommand) {
+        log.info("save product {} ", productCommand);
+        Product product= Product.
+                builder().
+                name(productCommand.getName())
+                .price(productCommand.getPrice())
+                .purchase(productCommand.getPurchase())
+                .build();
         return productMapper.productToProductRepresentation(productDao.save(product));
     }
 

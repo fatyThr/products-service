@@ -1,5 +1,6 @@
 package com.ecommerce.micrommerce.application.controller;
 
+import com.ecommerce.micrommerce.domain.service.command.ProductCommand;
 import com.ecommerce.micrommerce.domain.service.representation.ProductRepresentation;
 import com.ecommerce.micrommerce.infrastructure.exceptions.ProductException;
 import com.ecommerce.micrommerce.domain.entities.Product;
@@ -33,8 +34,8 @@ public class ProductController {
     }
 
     @PutMapping (value = "/products")
-    public ResponseEntity<Product> updateProduct(@RequestBody Product product) {
-        productService.saveOrUpdateProduct(product);
+    public ResponseEntity<Product> updateProduct(@RequestBody ProductCommand productCommand) {
+        productService.saveOrUpdateProduct(productCommand);
        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
@@ -56,7 +57,7 @@ public class ProductController {
 
 
     @PostMapping(value = "/products")
-    public ResponseEntity<ProductRepresentation> addProduct(@RequestBody @Valid Product product) {
+    public ResponseEntity<ProductRepresentation> addProduct(@RequestBody @Valid ProductCommand product) {
       if(product.getPrice().compareTo(BigDecimal.ZERO)<=0) {throw new ProductException("the selling price must be greater then 0!");}
         ProductRepresentation productAdded = productService.saveOrUpdateProduct(product);
         URI location = ServletUriComponentsBuilder
