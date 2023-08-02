@@ -43,7 +43,6 @@ public class ProductController {
     @ApiOperation(value = "get all products")
     @GetMapping("/products")
     public List<ProductRepresentation> getProducts() {
-
         return productService.findAllProductOrderByName();
     }
 

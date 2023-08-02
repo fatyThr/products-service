@@ -5,7 +5,7 @@ import com.ecommerce.micrommerce.domain.entities.Product;
 import com.ecommerce.micrommerce.domain.repository.ProductDao;
 import com.ecommerce.micrommerce.domain.service.ProductService;
 import com.ecommerce.micrommerce.domain.service.command.ProductCommand;
-import com.ecommerce.micrommerce.domain.service.mapper.ProductMapper;
+import com.ecommerce.micrommerce.domain.service.impl.mapper.ProductMapper;
 import com.ecommerce.micrommerce.domain.service.representation.ProductRepresentation;
 import com.ecommerce.micrommerce.infrastructure.exceptions.ProductException;
 import lombok.RequiredArgsConstructor;

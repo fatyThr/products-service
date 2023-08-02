@@ -1,4 +1,4 @@
-package com.ecommerce.micrommerce.domain.service.mapper;
+package com.ecommerce.micrommerce.domain.service.impl.mapper;
 
 import com.ecommerce.micrommerce.domain.entities.Product;
 import com.ecommerce.micrommerce.domain.service.representation.ProductRepresentation;
