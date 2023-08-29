@@ -8,7 +8,7 @@ import java.util.UUID;
 @Data
 public class ProductRepresentation {
 
-    private UUID id;
+    private Long id;
     private String name;
     private BigDecimal price;
     private BigDecimal purchase;

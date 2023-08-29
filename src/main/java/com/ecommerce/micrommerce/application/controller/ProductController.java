@@ -18,7 +18,6 @@ import java.math.BigDecimal;
 import java.net.URI;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 @Api( "API for CRUD operations on products.")
 @RequiredArgsConstructor
@@ -29,7 +28,7 @@ public class ProductController {
 
 
     @DeleteMapping (value = "/products/{id}")
-    public void deleteProduct(@PathVariable UUID id) {
+    public void deleteProduct(@PathVariable Long id) {
         productService.deleteProduct(id);
     }
 
@@ -48,7 +47,7 @@ public class ProductController {
 
     @ApiOperation(value = "get product with ID if exist!")
     @GetMapping(value = "/products/{id}")
-    public ProductRepresentation getProductById(@PathVariable UUID id) {
+    public ProductRepresentation getProductById(@PathVariable Long id) {
         ProductRepresentation product = productService.getProductById(id);
         if(product==null) throw new ProductException("the product with Id" + id + " is not found.");
         return product;

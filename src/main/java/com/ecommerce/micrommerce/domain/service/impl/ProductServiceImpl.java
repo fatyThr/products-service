@@ -31,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
     private  final ProductMapper productMapper;
 
     @Override
-    public void deleteProduct(UUID id) {
+    public void deleteProduct(Long id) {
         log.info("Delete product with id {} ",id);
         productDao.deleteById(id);
     }
@@ -55,7 +55,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductRepresentation getProductById(UUID id) {
+    public ProductRepresentation getProductById(Long id) {
         return productMapper.productToProductRepresentation(productDao.findById(id).orElseThrow(() -> new ProductException(" The product with ID :  "+id+" not found!")));
     }
 

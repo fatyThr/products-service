@@ -11,13 +11,13 @@ import java.util.UUID;
 
 public interface ProductService {
 
-    public void deleteProduct(UUID id);
+    public void deleteProduct(Long id);
 
     public ProductRepresentation saveOrUpdateProduct(ProductCommand productCommand);
 
     List<ProductRepresentation> findAllProductOrderByName();
 
-    ProductRepresentation getProductById(UUID id);
+    ProductRepresentation getProductById(Long id);
 
     public HashMap<ProductRepresentation, BigDecimal> getMargeProducts();
 
