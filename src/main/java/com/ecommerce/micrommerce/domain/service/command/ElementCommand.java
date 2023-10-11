@@ -1,15 +1,19 @@
 package com.ecommerce.micrommerce.domain.service.command;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
 @Data
-@Builder
-public class ProductCommand {
+@SuperBuilder(builderMethodName = "elementCommandBuilder")
+@NoArgsConstructor
+@AllArgsConstructor
+public class ElementCommand implements Serializable {
 
-    private String name;
-    private BigDecimal price;
-    private BigDecimal purchase;
+    private Integer page;
+    private Integer size;
+    private String defaultSort;
+    private Boolean defaultOrder;
 }

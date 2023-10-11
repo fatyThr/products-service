@@ -1,13 +1,14 @@
 package com.ecommerce.micrommerce.domain.service;
 
-import com.ecommerce.micrommerce.domain.entities.Product;
+import com.ecommerce.micrommerce.application.beans.Pagination;
 import com.ecommerce.micrommerce.domain.service.command.ProductCommand;
 import com.ecommerce.micrommerce.domain.service.representation.ProductRepresentation;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 
 public interface ProductService {
 
@@ -22,4 +23,6 @@ public interface ProductService {
     public HashMap<ProductRepresentation, BigDecimal> getMargeProducts();
 
     public List<ProductRepresentation> handle(Long size);
+
+    Pagination<ProductRepresentation> search(ProductCommand productCommand, Pageable pageable);
 }

@@ -1,5 +1,6 @@
 package com.ecommerce.micrommerce.application.controller;
 
+import com.ecommerce.micrommerce.application.beans.Pagination;
 import com.ecommerce.micrommerce.domain.service.command.ProductCommand;
 import com.ecommerce.micrommerce.domain.service.representation.ProductRepresentation;
 import com.ecommerce.micrommerce.infrastructure.exceptions.ProductException;
@@ -8,6 +9,9 @@ import com.ecommerce.micrommerce.domain.service.ProductService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -37,7 +41,12 @@ public class ProductController {
         productService.saveOrUpdateProduct(productCommand);
        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
-
+    @ApiOperation(value = "get all products")
+    @GetMapping("/search")
+    public Pagination<ProductRepresentation> search(ProductCommand productCommand) {
+        Pageable pageable= PageRequest.of(productCommand.getPage(), productCommand.getSize());
+        return productService.search(productCommand,pageable);
+    }
 
     @ApiOperation(value = "get all products")
     @GetMapping("/products")
