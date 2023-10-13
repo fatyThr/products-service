@@ -8,10 +8,9 @@ import com.ecommerce.micrommerce.domain.service.ProductService;
 import com.ecommerce.micrommerce.domain.service.command.ProductCommand;
 import com.ecommerce.micrommerce.domain.service.impl.mapper.ProductMapper;
 import com.ecommerce.micrommerce.domain.service.representation.ProductRepresentation;
-import com.ecommerce.micrommerce.infrastructure.exceptions.ProductException;
+import com.ecommerce.micrommerce.infrastructure.exceptions.TechnicalException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -59,7 +58,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductRepresentation getProductById(Long id) {
-        return productMapper.productToProductRepresentation(productRepository.findById(id).orElseThrow(() -> new ProductException(" The product with ID :  "+id+" not found!")));
+        return productMapper.productToProductRepresentation(productRepository.findById(id).orElseThrow(() -> new TechnicalException(" The product with ID :  "+id+" not found!")));
     }
 
     @Override
