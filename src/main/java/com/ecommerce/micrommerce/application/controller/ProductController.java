@@ -27,8 +27,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class ProductController {
-     private final ProductService productService;
-
+    private final ProductService productService;
 
     @DeleteMapping (value = "/products/{id}")
     public void deleteProduct(@PathVariable Long id) {
@@ -40,6 +39,7 @@ public class ProductController {
         productService.saveOrUpdateProduct(productCommand);
        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
     @ApiOperation(value = "get all products")
     @GetMapping("/search")
     public Pagination<ProductRepresentation> search(ProductCommand productCommand) {
@@ -82,7 +82,6 @@ public class ProductController {
 
     @GetMapping(value= "/products/maxSize/{size}")
     public List<ProductRepresentation> generateListOfProducts(@PathVariable Long size) {
-
         return productService.handle(size);
     }
 

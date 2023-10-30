@@ -13,7 +13,7 @@ This repository contains the Products Service, a microservice built for the e-co
 
 ## Description
 
-The Products Service is a microservice designed to handle product-related functionalities for an e-commerce platform. It follows a hexagonal architecture pattern, which promotes separation of concerns and maintainability. The service is built using Spring Boot and Java 11, providing a robust foundation for the e-commerce API.
+The Products Service is a microservice designed to handle product-related functionalities for an e-commerce platform. It follows a hexagonal architecture pattern, which promotes separation of concerns and maintainability. The service is built using Spring Boot and Java 17, providing a robust foundation for the e-commerce API.
 
 ## Getting Started
 
@@ -22,7 +22,7 @@ The Products Service is a microservice designed to handle product-related functi
 To run the Products Service, make sure you have the following installed on your system:
 - Java Development Kit (JDK) 11
 - Maven 
-- H2 Database
+- Mysql Database
 
 #### Database Setup
 
